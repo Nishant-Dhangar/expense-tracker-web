@@ -35,9 +35,10 @@ async function secureFetch(url, options = {}) {
     headers["X-XSRF-TOKEN"] =
         token;
 
-    return fetch(apiUrl(url), {
+   return fetch(apiUrl(url), {
     ...options,
-    headers: headers
+    headers: headers,
+    credentials: "include"
 });
 }
 // ==============================
@@ -325,8 +326,11 @@ async function loadCategories() {
 
     try {
 
-        const response =
-            await fetch(apiUrl("/api/categories"));
+        
+            const response =
+    await fetch(apiUrl("/api/categories"), {
+        credentials: "include"
+    });
 
         const categories =
             await response.json();
