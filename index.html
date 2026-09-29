@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div>
+            <h1>💰 Expense Tracker</h1>
+            <p>Manage your money smarter.</p>
+        </div>
+
+      <div class="user-area">
+
+    <strong>
+        Welcome, <span id="userName"></span> 👋
+    </strong>
+
+    <button
+        class="logout-btn"
+        onclick="logout()">
+        Logout
+    </button>
+
+</div>
+    </header>
+
+
+    <!-- Summary Cards -->
+
+    <div class="summary">
+
+        <div class="card">
+            <h3>Balance</h3>
+            <p class="balance" id="balance">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Income</h3>
+            <p class="income" id="income">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Expenses</h3>
+            <p class="expense" id="expenses">₹0</p>
+        </div>
+
+    </div>
+<div class="section budget-section">
+
+    <h2>Monthly Budget</h2>
+
+    <div class="budget-form">
+
+        <input
+            type="number"
+            id="budgetAmount"
+            placeholder="Enter monthly budget"
+            min="0"
+            step="0.01"
+        >
+
+        <button onclick="saveBudget()">
+            Save Budget
+        </button>
+
+    </div>
+
+    <div class="budget-info">
+
+        <div>
+            <span>Budget</span>
+            <strong id="budgetTotal">₹0</strong>
+        </div>
+
+        <div>
+            <span>Spent</span>
+            <strong id="budgetSpent">₹0</strong>
+        </div>
+
+        <div>
+            <span>Remaining</span>
+            <strong id="budgetRemaining" class="budget-remaining">₹0</strong>
+        </div>
+
+    </div>
+
+    <div class="budget-progress-container">
+        <div
+            id="budgetProgress"
+            class="budget-progress"
+        ></div>
+    </div>
+
+    <p id="budgetPercentage">0% used</p>
+
+</div>
+
+    <!-- Add Transaction + Breakdown -->
+
+    <div class="main-content">
+
+        <div class="section">
+
+            <h2>Add Transaction</h2>
+
+            <form id="transactionForm">
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    required
+                >
+
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                </select>
+
+                <select id="type" required>
+                    <option value="EXPENSE">Expense</option>
+                    <option value="INCOME">Income</option>
+                </select>
+
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Description"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+                <button type="submit">
+                    Add Transaction
+                </button>
+
+            </form>
+
+        </div>
+
+
+      <div class="section">
+
+    <h2>Expense Breakdown</h2>
+
+    <div id="expenseBreakdown">
+        <p>No expenses yet.</p>
+    </div>
+
+    <canvas id="expenseChart"></canvas>
+
+</div>
+
+    </div>
+
+
+    <!-- Recent Transactions -->
+
+    <div class="transactions">
+
+        <h2>Recent Transactions</h2>
+
+        <div id="transactionList">
+
+            <p>No transactions yet.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
