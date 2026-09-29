@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://expense-tracker-abe2.onrender.com";
+const API_BASE_URL = "";
 function apiUrl(url) {
     return url.startsWith("http")
         ? url
